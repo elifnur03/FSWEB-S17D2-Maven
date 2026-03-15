@@ -1,4 +1,12 @@
-#!/bin/sh
+PS C:\Users\elifn> .\mvnw clean install
+.\mvnw : The term '.\mvnw' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify
+ that the path is correct and try again.
+At line:1 char:1
++ .\mvnw clean install
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (.\mvnw:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ #!/bin/sh
 # ----------------------------------------------------------------------------
 # Licensed to the Apache Software Foundation (ASF) under one
 # or more contributor license agreements.  See the NOTICE file
