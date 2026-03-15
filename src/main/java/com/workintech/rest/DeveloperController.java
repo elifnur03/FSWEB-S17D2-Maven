@@ -1,34 +1,27 @@
-package com.workintech.rest;
+package com.workintech.controller;
 
-import com.workintech.tax.DeveloperTax;
-import org.springframework.web.bind.annotation.*;
 import com.workintech.model.Developer;
-import com.workintech.model.Experience;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
-@RequestMapping("/workintech/developers")
+@RequestMapping("/developers")
 public class DeveloperController {
 
-    public Map<Integer, Developer> developers = new HashMap<>();
+    private List<Developer> developers = new ArrayList<>();
 
-    public DeveloperController(DeveloperTax developerTax) {
-        developers.put(1, new Developer(1, "Alice", 5000, Experience.JUNIOR));
-        developers.put(2, new Developer(2, "Bob", 8000, Experience.MID));
-    }
-
+    // GET /developers → tüm developerları listeler
     @GetMapping
-    public Map<Integer, Developer> getAll() {
+    public List<Developer> getAllDevelopers() {
         return developers;
     }
 
-    @GetMapping("/{id}")
-    public Developer getById(@PathVariable int id) {
-        return developers.get(id);
-    }
-
-    public void init() {
+    // POST /developers → yeni developer ekler
+    @PostMapping
+    public Developer addDeveloper(@RequestBody Developer developer) {
+        developers.add(developer);
+        return developer;
     }
 }
